@@ -135,7 +135,17 @@ in
     libreoffice-qt
     hunspell
     hunspellDicts.pl_PL
+
+    neovim
+    lazygit
+    curl
+    fzf
+    ripgrep
+    fd
+
   ];
+
+  fonts.packages = with pkgs; [ nerdfonts ];
 
   security.pam.services.sddm.kwallet.enable = true;
   programs = {
