@@ -143,6 +143,7 @@ in
     ripgrep
     fd
 
+    qbittorrent
   ];
 
   fonts.packages = with pkgs; [ nerdfonts ];
