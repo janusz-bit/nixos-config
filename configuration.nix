@@ -9,7 +9,7 @@
 let
   unstable = import <nixos-unstable> { config = config.nixpkgs.config; };
 in
-rec {
+{
   imports = [
     <nixos-hardware/asus/fa507nv>
     # Include the results of the hardware scan.
