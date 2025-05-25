@@ -137,6 +137,7 @@ in
     libreoffice-qt
     hunspell
     hunspellDicts.pl_PL
+    emacs
   ];
 
   security.pam.services.sddm.kwallet.enable = true;
