@@ -150,6 +150,9 @@ in
 
     clamav
     clamtk
+
+    rustup
+    python314Full
   ];
 
   services.clamav.daemon.enable = true;
