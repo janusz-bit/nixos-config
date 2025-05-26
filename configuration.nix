@@ -152,6 +152,9 @@ in
     clamtk
   ];
 
+  services.clamav.daemon.enable = true;
+  services.clamav.updater.enable = true;
+
   fonts.packages = with pkgs; [ nerd-fonts._0xproto ];
 
   security.pam.services.sddm.kwallet.enable = true;
