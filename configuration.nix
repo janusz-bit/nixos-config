@@ -147,6 +147,9 @@ in
 
     clang
     gcc
+
+    clamav
+    clamtk
   ];
 
   fonts.packages = with pkgs; [ nerd-fonts._0xproto ];
