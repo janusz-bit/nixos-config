@@ -144,6 +144,9 @@ in
     fd
 
     qbittorrent
+
+    clang
+    gcc
   ];
 
   fonts.packages = with pkgs; [ nerd-fonts._0xproto ];
