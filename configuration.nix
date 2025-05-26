@@ -146,7 +146,7 @@ in
     qbittorrent
   ];
 
-  fonts.packages = with pkgs; [ nerdfonts ];
+  fonts.packages = with pkgs; [ nerd-fonts._0xproto ];
 
   security.pam.services.sddm.kwallet.enable = true;
   programs = {
