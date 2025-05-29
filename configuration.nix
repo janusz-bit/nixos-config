@@ -12,6 +12,7 @@ in
     <nixos-hardware/asus/fa507nv>
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ./nix-alien.nix
   ];
 
   nix.settings.experimental-features = [
@@ -153,6 +154,8 @@ in
 
     rustup
     python314Full
+
+    unzip
   ];
 
   services.clamav.daemon.enable = true;
