@@ -70,7 +70,10 @@ in
   console.keyMap = "pl2";
 
   # Enable CUPS to print documents.
-  services.printing.enable = true;
+  services.printing = {
+    enable = true;
+    drivers = with pkgs; [ gutenprint hplip splix];
+  };
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
@@ -243,6 +246,7 @@ in
     enable = true;
     powerOnBoot = true;
   };
+
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
