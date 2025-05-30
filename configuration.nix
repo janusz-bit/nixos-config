@@ -161,6 +161,8 @@ in
     unzip
 
     emacs
+
+    ytmdesktop
   ];
 
   services.clamav.daemon.enable = true;
