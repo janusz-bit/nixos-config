@@ -159,6 +159,8 @@ in
     python314Full
 
     unzip
+
+    emacs
   ];
 
   services.clamav.daemon.enable = true;
