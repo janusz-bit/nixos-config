@@ -161,6 +161,8 @@ in
     unzip
 
     emacs
+
+    nil
   ];
 
   services.clamav.daemon.enable = true;
