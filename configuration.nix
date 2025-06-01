@@ -251,7 +251,7 @@ in
     powerOnBoot = true;
   };
 
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_15;
+  # boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_15;
 
 
   # Some programs need SUID wrappers, can be configured further or are
