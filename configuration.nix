@@ -251,7 +251,18 @@ in
     powerOnBoot = true;
   };
 
-  # boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_15;
+  boot.kernelPackages = pkgs.linuxPackagesFor (pkgs.linux_6_13.override {
+    argsOverride = {
+      src = builtins.fetchTree {
+        type = "github";
+        owner = "flukejones";
+        repo = "linux";
+        rev = "231ab042171c87fe3ddbe6c1a622683d9da9d7f2";
+      };
+      version = "6.13.0";
+      modDirVersion = "6.13.11";
+      };
+  });
 
 
   # Some programs need SUID wrappers, can be configured further or are
