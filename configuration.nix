@@ -139,6 +139,7 @@ in
     libreoffice-qt
     hunspell
     hunspellDicts.pl_PL
+    lutris
 
     neovim
     lazygit
