@@ -139,7 +139,19 @@ in
     libreoffice-qt
     hunspell
     hunspellDicts.pl_PL
-    lutris
+
+    
+
+    (lutris.override {
+      extraLibraries =  pkgs: [
+        # List library dependencies here
+      ];
+      extraPkgs = pkgs: [
+         # List package dependencies here
+         wine
+         
+       ];
+    })
 
     neovim
     lazygit
@@ -251,6 +263,9 @@ in
     enable = true;
     powerOnBoot = true;
   };
+
+  hardware.graphics.enable32Bit = true;
+
 
   boot.kernelPackages = pkgs.linuxPackagesFor (pkgs.linux_6_13.override {
     argsOverride = {
