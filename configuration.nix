@@ -72,7 +72,11 @@ in
   # Enable CUPS to print documents.
   services.printing = {
     enable = true;
-    drivers = with pkgs; [ gutenprint hplip splix];
+    drivers = with pkgs; [
+      gutenprint
+      hplip
+      splix
+    ];
   };
 
   # Enable sound with pipewire.
@@ -140,19 +144,6 @@ in
     hunspell
     hunspellDicts.pl_PL
 
-    
-
-    (lutris.override {
-      extraLibraries =  pkgs: [
-        # List library dependencies here
-      ];
-      extraPkgs = pkgs: [
-         # List package dependencies here
-         wine
-         
-       ];
-    })
-
     neovim
     lazygit
     curl
@@ -176,6 +167,9 @@ in
     emacs
 
     nil
+
+    wine64
+    winetricks
   ];
 
   services.clamav.daemon.enable = true;
@@ -264,22 +258,22 @@ in
     powerOnBoot = true;
   };
 
-  hardware.graphics.enable32Bit = true;
+  # hardware.graphics.enable32Bit = true;
 
-
-  boot.kernelPackages = pkgs.linuxPackagesFor (pkgs.linux_6_13.override {
-    argsOverride = {
-      src = builtins.fetchTree {
-        type = "github";
-        owner = "flukejones";
-        repo = "linux";
-        rev = "231ab042171c87fe3ddbe6c1a622683d9da9d7f2";
+  boot.kernelPackages = pkgs.linuxPackagesFor (
+    pkgs.linux_6_13.override {
+      argsOverride = {
+        src = builtins.fetchTree {
+          type = "github";
+          owner = "flukejones";
+          repo = "linux";
+          rev = "231ab042171c87fe3ddbe6c1a622683d9da9d7f2";
+        };
+        version = "6.13.0";
+        modDirVersion = "6.13.11";
       };
-      version = "6.13.0";
-      modDirVersion = "6.13.11";
-      };
-  });
-
+    }
+  );
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
