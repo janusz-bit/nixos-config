@@ -6,6 +6,10 @@
 
 let
   unstable = import <nixos-unstable> { config = config.nixpkgs.config; };
+  g14_patches = fetchGit {
+    url = "https://aur.archlinux.org/linux-g14.git/";
+    rev = "b0d9b3bb76006960293f7c6978f68b7b8656bd55";
+  };
 in
 {
   imports = [
@@ -208,6 +212,11 @@ in
     pkgs.proton-ge-bin
   ];
 
+  services.asusd.package = pkgs.asusctl.overrideAttrs {
+    src = builtins.fetchTree "gitlab:asus-linux/asusctl/685345d6567bc366e93bbc3d7321f9d9a719a7ed";
+  };
+  services.supergfxd.enable = true;
+
   services.asusd.asusdConfig.text = ''
     (
         charge_control_end_threshold: 80,
@@ -260,20 +269,7 @@ in
 
   # hardware.graphics.enable32Bit = true;
 
-  boot.kernelPackages = pkgs.linuxPackagesFor (
-    pkgs.linux_6_13.override {
-      argsOverride = {
-        src = builtins.fetchTree {
-          type = "github";
-          owner = "flukejones";
-          repo = "linux";
-          rev = "231ab042171c87fe3ddbe6c1a622683d9da9d7f2";
-        };
-        version = "6.13.0";
-        modDirVersion = "6.13.11";
-      };
-    }
-  );
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_14;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
