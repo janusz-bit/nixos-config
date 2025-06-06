@@ -6,10 +6,7 @@
 
 let
   unstable = import <nixos-unstable> { config = config.nixpkgs.config; };
-  g14_patches = fetchGit {
-    url = "https://aur.archlinux.org/linux-g14.git/";
-    rev = "b0d9b3bb76006960293f7c6978f68b7b8656bd55";
-  };
+  g14_patches = builtins.fetchTree "gitlab:asus-linux/fedora-kernel/4846e5cf0d61eda1aa03e767fc8ef4a2b87a6be0";
 in
 {
   imports = [
@@ -109,6 +106,7 @@ in
     extraGroups = [
       "networkmanager"
       "wheel"
+      "adbusers"
     ];
     packages = with pkgs; [
       # vesktop # bcs of no sound in some games, I dont use it
@@ -174,6 +172,8 @@ in
 
     wine64
     winetricks
+
+    universal-android-debloater
   ];
 
   services.clamav.daemon.enable = true;
@@ -269,7 +269,15 @@ in
 
   # hardware.graphics.enable32Bit = true;
 
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_14;
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_13;
+  boot.kernelPatches = [
+    {
+      name = "asus-patch-series.patch";
+      patch = "${g14_patches}/asus-patch-series.patch";
+    }
+  ];
+
+  programs.adb.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
