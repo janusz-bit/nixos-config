@@ -220,25 +220,41 @@ in
   services.asusd.asusdConfig.text = ''
     (
         charge_control_end_threshold: 80,
-        panel_od: false,
-        boot_sound: false,
-        mini_led_mode: false,
         disable_nvidia_powerd_on_battery: true,
         ac_command: "",
         bat_command: "",
-        throttle_policy_linked_epp: true,
-        throttle_policy_on_battery: Quiet,
-        change_throttle_policy_on_battery: true,
-        throttle_policy_on_ac: Performance,
-        change_throttle_policy_on_ac: true,
-        throttle_quiet_epp: Power,
-        throttle_balanced_epp: BalancePower,
-        throttle_performance_epp: Performance,
-        ppt_pl1_spl: 105,
-        ppt_pl2_sppt: 140,
-        ppt_fppt: 140,
-        nv_dynamic_boost: 5,
-        nv_temp_target: 87,
+        platform_profile_linked_epp: true,
+        platform_profile_on_battery: Quiet,
+        change_platform_profile_on_battery: true,
+        platform_profile_on_ac: Performance,
+        change_platform_profile_on_ac: true,
+        profile_quiet_epp: Power,
+        profile_balanced_epp: BalancePower,
+        profile_custom_epp: Performance,
+        profile_performance_epp: Performance,
+        ac_profile_tunings: {},
+        dc_profile_tunings: {
+            Balanced: (
+                enabled: false,
+                group: {},
+            ),
+            Performance: (
+                enabled: true,
+                group: {
+                    PptPl3Fppt: 65,
+                    PptPl1Spl: 45,
+                    PptPl2Sppt: 54,
+                },
+            ),
+            Quiet: (
+                enabled: false,
+                group: {},
+            ),
+        },
+        armoury_settings: {
+            NvDynamicBoost: 25,
+            NvTempTarget: 87,
+        },
     )
   '';
 
