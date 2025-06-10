@@ -174,6 +174,8 @@ in
     winetricks
 
     universal-android-debloater
+
+    kdePackages.kcalc
   ];
 
   services.clamav.daemon.enable = true;
