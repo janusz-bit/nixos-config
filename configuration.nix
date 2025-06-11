@@ -176,8 +176,6 @@ in
     universal-android-debloater
 
     kdePackages.kcalc
-
-    bootdev-cli
   ];
 
   services.clamav.daemon.enable = true;
