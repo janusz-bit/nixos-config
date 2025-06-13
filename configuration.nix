@@ -176,6 +176,7 @@ in
     universal-android-debloater
 
     kdePackages.kcalc
+    libsForQt5.kdeconnect-kde
   ];
 
   services.clamav.daemon.enable = true;
