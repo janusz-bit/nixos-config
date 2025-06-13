@@ -214,9 +214,9 @@ in
     pkgs.proton-ge-bin
   ];
 
-  services.asusd.package = pkgs.asusctl.overrideAttrs {
-    src = builtins.fetchTree "gitlab:asus-linux/asusctl/685345d6567bc366e93bbc3d7321f9d9a719a7ed";
-  };
+  # services.asusd.package = pkgs.asusctl.overrideAttrs {
+  #   src = builtins.fetchTree "gitlab:asus-linux/asusctl/685345d6567bc366e93bbc3d7321f9d9a719a7ed";
+  # };
   services.supergfxd.enable = true;
 
   services.asusd.asusdConfig.text = ''
