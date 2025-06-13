@@ -176,7 +176,7 @@ in
     universal-android-debloater
 
     kdePackages.kcalc
-    libsForQt5.kdeconnect-kde
+    # libsForQt5.kdeconnect-kde
   ];
 
   services.clamav.daemon.enable = true;
@@ -205,6 +205,7 @@ in
     firefox.enable = true;
     gamemode.enable = true;
     partition-manager.enable = true;
+    kdeconnect.enable = true;
   };
 
   environment.sessionVariables = {
