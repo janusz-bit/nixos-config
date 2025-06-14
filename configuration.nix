@@ -156,7 +156,7 @@ in
     qbittorrent
 
     clang
-    # gcc
+    gcc
 
     clamav
     clamtk
