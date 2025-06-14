@@ -236,28 +236,46 @@ in
         profile_balanced_epp: BalancePower,
         profile_custom_epp: Performance,
         profile_performance_epp: Performance,
-        ac_profile_tunings: {},
-        dc_profile_tunings: {
+        ac_profile_tunings: {
             Balanced: (
+                enabled: false,
+                group: {},
+            ),
+            Quiet: (
                 enabled: false,
                 group: {},
             ),
             Performance: (
                 enabled: true,
                 group: {
+                    PptPl1Spl: 45,
+                    PptPl2Sppt: 60,
                     PptPl3Fppt: 65,
+                },
+            ),
+        },
+        dc_profile_tunings: {
+            Performance: (
+                enabled: true,
+                group: {
                     PptPl1Spl: 45,
                     PptPl2Sppt: 54,
+                    PptPl3Fppt: 65,
                 },
             ),
             Quiet: (
                 enabled: false,
                 group: {},
             ),
+            Balanced: (
+                enabled: false,
+                group: {},
+            ),
         },
         armoury_settings: {
-            NvDynamicBoost: 25,
             NvTempTarget: 87,
+            PanelOverdrive: 1,
+            NvDynamicBoost: 25,
         },
     )
   '';
