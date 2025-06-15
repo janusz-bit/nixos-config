@@ -327,6 +327,8 @@ in
 
   # List services that you want to enable:
 
+
+   services.fail2ban.enable = true;
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
