@@ -327,13 +327,20 @@ in
 
   # List services that you want to enable:
 
-
-   services.fail2ban.enable = true;
+  services.fail2ban.enable = true;
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    ports = 22;
+    settings = {
+      UseDns = true;
+      PasswordAuthentication = true;
+
+    };
+  };
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [ 22 ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
