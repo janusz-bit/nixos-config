@@ -2,7 +2,12 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs,lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 let
   unstable = import <nixos-unstable> { config = config.nixpkgs.config; };
@@ -177,6 +182,9 @@ in
 
     kdePackages.kcalc
     # libsForQt5.kdeconnect-kde
+
+    vim
+    nano
   ];
 
   services.clamav.daemon.enable = true;
@@ -331,7 +339,7 @@ in
   # Enable the OpenSSH daemon.
   services.openssh = {
     enable = true;
-    ports = [22];
+    ports = [ 22 ];
     settings = {
       UseDns = true;
       PasswordAuthentication = true;
