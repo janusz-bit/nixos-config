@@ -185,6 +185,8 @@ in
 
     vim
     nano
+
+    htop
   ];
 
   services.clamav.daemon.enable = true;
