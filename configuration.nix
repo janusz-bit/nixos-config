@@ -224,6 +224,12 @@ in
     gamemode.enable = true;
     partition-manager.enable = true;
     kdeconnect.enable = true;
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+      enableBrowserSocket = true;
+      enableExtraSocket = true;
+    };
   };
 
   environment.sessionVariables = {
@@ -266,9 +272,9 @@ in
             Performance: (
                 enabled: true,
                 group: {
-                    PptPl1Spl: 45,
-                    PptPl2Sppt: 60,
-                    PptPl3Fppt: 65,
+                    PptPl1Spl: 55,
+                    PptPl2Sppt: 75,
+                    PptPl3Fppt: 80,
                 },
             ),
         },
@@ -276,9 +282,9 @@ in
             Performance: (
                 enabled: true,
                 group: {
-                    PptPl1Spl: 45,
-                    PptPl2Sppt: 54,
-                    PptPl3Fppt: 65,
+                    PptPl1Spl: 55,
+                    PptPl2Sppt: 75,
+                    PptPl3Fppt: 80,
                 },
             ),
             Quiet: (
