@@ -166,7 +166,6 @@ in
     clamav
     clamtk
 
-    rustup
     python314Full
 
     unzip
