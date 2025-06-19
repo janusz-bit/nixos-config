@@ -192,6 +192,10 @@ in
     nil
     cargo
     rustc
+    rustfmt
+    rust-analyzer
+    clippy
+    
   ];
 
   services.clamav.daemon.enable = true;
