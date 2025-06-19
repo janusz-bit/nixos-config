@@ -190,6 +190,8 @@ in
 
     nodejs
     nil
+    cargo
+    rustc
   ];
 
   services.clamav.daemon.enable = true;
