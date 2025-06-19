@@ -189,6 +189,7 @@ in
     htop
 
     nodejs
+    nil
   ];
 
   services.clamav.daemon.enable = true;
