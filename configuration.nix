@@ -187,6 +187,8 @@ in
     nano
 
     htop
+
+    nodejs
   ];
 
   services.clamav.daemon.enable = true;
