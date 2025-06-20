@@ -304,6 +304,8 @@ in
     )
   '';
 
+  hardware.nvidia.open = lib.mkForce true;
+
   services.syncthing = rec {
     enable = true;
     openDefaultPorts = true;
