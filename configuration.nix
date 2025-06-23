@@ -195,6 +195,8 @@ in
     rust-analyzer
     clippy
     
+    pinta
+    gimp3
   ];
 
   services.clamav.daemon.enable = true;
