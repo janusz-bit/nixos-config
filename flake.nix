@@ -19,8 +19,12 @@
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
-        modules = [ ./configuration.nix 
-         nixos-hardware.asus-fa507nv];
+        modules = [
+          ./configuration.nix
+          nixos-hardware.asus-fa507nv
+          # Include the results of the hardware scan.
+          ./hardware-configuration.nix
+        ];
       };
 
     };
