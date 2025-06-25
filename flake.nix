@@ -21,7 +21,7 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./configuration.nix
-          nixos-hardware.asus-fa507nv
+          nixos-hardware.nixosModules.asus-fa507nv
           # Include the results of the hardware scan.
           ./hardware-configuration.nix
         ];
