@@ -9,25 +9,27 @@
   inputs,
   ...
 }:
+let
+  g14_patches = builtins.fetchTree "gitlab:asus-linux/fedora-kernel/4846e5cf0d61eda1aa03e767fc8ef4a2b87a6be0";
+in
 {
 
   # Definicje systemów plików
-fileSystems."/" =
-  { device = "/dev/disk/by-uuid/a302bf7f-8bac-44fa-a1da-8d42c3af2f32";
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/a302bf7f-8bac-44fa-a1da-8d42c3af2f32";
     fsType = "ext4";
   };
 
-fileSystems."/boot" =
-  { device = "/dev/disk/by-uuid/A55C-1C25";
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/A55C-1C25";
     fsType = "vfat";
   };
 
   # Włącz odszyfrowywanie partycji root (LUKS) przy starcie systemu
-boot.initrd.luks.devices."root" = {
-  device = "/dev/disk/by-uuid/14a44bdb-4ddf-4401-8e55-173da55be981";
-  preLVM = true;
-};
-
+  boot.initrd.luks.devices."root" = {
+    device = "/dev/disk/by-uuid/14a44bdb-4ddf-4401-8e55-173da55be981";
+    preLVM = true;
+  };
 
   nix.settings.experimental-features = [
     "nix-command"
@@ -347,7 +349,7 @@ boot.initrd.luks.devices."root" = {
   boot.kernelPatches = [
     {
       name = "asus-patch-series.patch";
-      patch = "${inputs.g14_patches}/asus-patch-series.patch";
+      patch = "${g14_patches}/asus-patch-series.patch";
     }
   ];
 
