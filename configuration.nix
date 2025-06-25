@@ -11,6 +11,24 @@
 }:
 {
 
+  # Definicje systemów plików
+fileSystems."/" =
+  { device = "/dev/disk/by-uuid/a302bf7f-8bac-44fa-a1da-8d42c3af2f32";
+    fsType = "ext4";
+  };
+
+fileSystems."/boot" =
+  { device = "/dev/disk/by-uuid/A55C-1C25";
+    fsType = "vfat";
+  };
+
+  # Włącz odszyfrowywanie partycji root (LUKS) przy starcie systemu
+boot.initrd.luks.devices."root" = {
+  device = "/dev/disk/by-uuid/14a44bdb-4ddf-4401-8e55-173da55be981";
+  preLVM = true;
+};
+
+
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"

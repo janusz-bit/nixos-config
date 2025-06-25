@@ -23,7 +23,7 @@
           ./configuration.nix
           nixos-hardware.nixosModules.asus-fa507nv
           # Include the results of the hardware scan.
-          ./hardware-configuration.nix
+          # ./hardware-configuration.nix
         ];
       };
 
