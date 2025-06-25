@@ -6,19 +6,13 @@
   config,
   pkgs,
   lib,
+  inputs,
   ...
 }:
-
-let
-  unstable = import <nixos-unstable> { config = config.nixpkgs.config; };
-  g14_patches = builtins.fetchTree "gitlab:asus-linux/fedora-kernel/4846e5cf0d61eda1aa03e767fc8ef4a2b87a6be0";
-in
 {
   imports = [
-    <nixos-hardware/asus/fa507nv>
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ./nix-alien.nix
   ];
 
   nix.settings.experimental-features = [
@@ -144,8 +138,8 @@ in
     signal-desktop
     handbrake
     obsidian
-    unstable.pandoc
-    unstable.kdePackages.wallpaper-engine-plugin
+    pandoc
+    kdePackages.wallpaper-engine-plugin
     betterdiscordctl
     libreoffice-qt
     hunspell
@@ -194,7 +188,7 @@ in
     rustfmt
     rust-analyzer
     clippy
-    
+
     pinta
     gimp3
   ];
@@ -339,7 +333,7 @@ in
   boot.kernelPatches = [
     {
       name = "asus-patch-series.patch";
-      patch = "${g14_patches}/asus-patch-series.patch";
+      patch = "${inputs.g14_patches}/asus-patch-series.patch";
     }
   ];
 
